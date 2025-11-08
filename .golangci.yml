@@ -1,7 +1,9 @@
-version: 2
+version: "2"
 
 run:
   timeout: 5m
 
 issues:
-  exclude-use-default: false
+  # Show all issues by default
+  max-issues-per-linter: 0
+  max-same-issues: 0
