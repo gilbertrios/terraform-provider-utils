@@ -30,11 +30,11 @@ locals {
   config_hash = provider::utils::sha256(local.config_content)
   
   # Truncate for length-restricted fields (e.g., AWS resource name limits)
-  long_description = "This is a detailed description of the ${local.application} application running in ${local.environment} environment"
+  long_description = "This is a detailed description of the ${local.resource_name} application running in ${local.environment} environment"
   short_name      = provider::utils::truncate(local.resource_name, 32, "")
 
   # Create formatted tags
-  tag_values = [local.environment, local.application, local.region]
+  tag_values = [local.environment, local.resource_name, local.region]
   tags_string = provider::utils::join(local.tag_values, "-")
 }
 
