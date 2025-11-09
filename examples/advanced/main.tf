@@ -35,7 +35,7 @@ locals {
 
   # Create formatted tags
   tag_values = [local.environment, local.resource_name, local.region]
-  tags_string = provider::utils::join(local.tag_values, "-")
+  tags_string = provider::utils::join(local.tag_values, ", ")
 }
 
 # Practical use case: Managing secrets and credentials
